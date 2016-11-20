@@ -20,7 +20,6 @@ public class MapGenerator : MonoBehaviour {
 	void Update() {
 		if (Input.GetMouseButtonDown(0)) {
 			GenerateMap ();
-			Debug.Log ("UPDATE");
 		}
 	}
 
@@ -31,6 +30,9 @@ public class MapGenerator : MonoBehaviour {
 		for (int i = 0; i < 5; i++) {
 			SmoothMap ();
 		}
+
+		MeshGenerator meshGen = GetComponent<MeshGenerator> ();
+		meshGen.GenerateMesh (map, 1);
 	}
 
 	void RandomFillMap() {
@@ -85,6 +87,7 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
+		/*
 		if (map == null)
 			return;
 
@@ -95,5 +98,6 @@ public class MapGenerator : MonoBehaviour {
 				Gizmos.DrawCube (position, Vector3.one);
 			}
 		}
+		*/
 	}
 }
